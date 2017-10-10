@@ -9,17 +9,16 @@ public class vertex {
 		this.y = y;
 		
 	}
-	
-	public static void main(String[] args) {
-		
-		vertex v1 = new vertex(2,2);
-		System.out.println(v1);
-				
-	}
 
 	public String toString(){
 		
 		return "("+x+","+y+")";
+		
+	}
+	
+	public double lenght(vertex v){
+		
+	    return Math.sqrt(v.x*v.x+v.y*v.y);
 		
 	}
 	
