@@ -17,4 +17,10 @@ public class vertex {
 				
 	}
 
+	public String toString(){
+		
+		return "("+x+","+y+")";
+		
+	}
+	
 }
