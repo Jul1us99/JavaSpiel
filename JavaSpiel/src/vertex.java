@@ -17,7 +17,7 @@ public class vertex {
 	}
 	
 	
-	public double lenght(){
+	public double length(){
 		
 	    return Math.sqrt(x*x+y*y);
 	}
@@ -31,8 +31,8 @@ public class vertex {
 	
     public void skalarMultMod(double s) {
 		
-		x=x*s;
-		y=y*s;
+		x = x*s;
+		y = y*s;
 	}
 	
     
@@ -44,8 +44,8 @@ public class vertex {
     
     public void addMod(vertex v) {
 		
-	    x = v.x + x;
-	    y = v.y + y;
+	    x = v.x+x;
+	    y = v.y+y;
     }
     
     
@@ -62,12 +62,58 @@ public class vertex {
     
     
     public double getX() {
+    	
     	return x;
     }
 
 
     public double getY() {
+    	
     	return y;
+    }
+    
+    
+    
+    public boolean equals(Object thatObject){
+    	
+        if(thatObject instanceof vertex){
+    	
+    	vertex that = (vertex)thatObject;
+        
+    	    return this.x == that.x && this.y == that.y;
+        }	
+    
+        return false; 
+    }
+    
+    
+    public double distance(vertex v){
+		
+    	double xx = v.y+this.y;
+    	double yy = v.x+this.x;		
+	    return Math.sqrt(xx*xx+yy*yy);
+	}
+    
+    
+    public vertex sub(vertex v){
+    	
+    	return new vertex (v.x+x, v.y+y);
+    }
+    
+    
+    public void subMod(vertex v){
+    	
+    	x = v.x+x;
+    	y = v.y+y;	
+    }
+    
+    
+    public void normalize(){
+    	
+    	double factor = length();
+    	x = x/factor;
+    	y = y/factor;
     }
 }
 
+   
