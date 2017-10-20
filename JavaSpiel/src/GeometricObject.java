@@ -50,4 +50,55 @@ public GeometricObject(vertex pos){
 	
 	this(pos, 0, 0);
 }
+
+public String toString(){
+	
+	return "pos="+pos+", width = "+width+", height = "+height+"";
 }
+
+public double circumference(){
+	
+	return 2*(width+height);
+}
+
+
+public double area(){
+	
+	return (width*height);
+}
+
+public boolean contains(vertex v){
+	
+	return (v.x >= pos.x && v.x <= pos.x+width) &&
+		   (v.y >= pos.y && v.y <= pos.y+height);
+}
+
+public boolean isLargerThan(GeometricObject that){
+	
+	return this.area() > that.area();
+}
+
+public void moveTo(vertex v){
+	
+	this.pos = v;
+}
+
+public void moveTo(double x, double y){
+	
+	moveTo(new vertex(x,y));
+}
+
+public boolean equals(Object thatObject){
+	
+	if(thatObject instanceof GeometricObject){
+		
+		GeometricObject that = (GeometricObject)thatObject;
+		
+		return that.width == this.width &&
+			   that.height == this.height &&
+			   this.pos.equals(that.pos);
+	}
+	return false;
+}
+}
+
